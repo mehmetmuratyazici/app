@@ -513,7 +513,7 @@ const Statistics = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="p-6"
             >
-              <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-orange-600 mb-2">
                 {stat.number}
               </div>
               <div className="text-gray-600 text-lg">{stat.label}</div>
