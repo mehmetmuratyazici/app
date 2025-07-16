@@ -600,7 +600,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="paketler" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -620,7 +620,7 @@ const Pricing = () => {
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start space-x-3">
-                    <FaCheck className="text-green-600 mt-1 flex-shrink-0" />
+                    <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
                     <span className="text-gray-600">{feature}</span>
                   </li>
                 ))}
