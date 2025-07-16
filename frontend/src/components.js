@@ -211,7 +211,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
 // Hero Component
 const Hero = () => {
   return (
-    <section className="relative bg-gray-900 text-white py-20 overflow-hidden">
+    <section id="hero" className="relative bg-gray-900 text-white py-20 overflow-hidden">
       <div className="absolute inset-0">
         <img 
           src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" 
@@ -230,7 +230,7 @@ const Hero = () => {
             className="text-4xl md:text-6xl font-bold mb-6"
           >
             Profesyonel <br />
-            <span className="text-green-500">Dropshipping</span> <br />
+            <span className="text-orange-500">Dropshipping</span> <br />
             Çözümleri
           </motion.h1>
           
@@ -240,14 +240,14 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl mb-8 text-gray-300"
           >
-            OneAmz Ayrıcalıklarıyla Dropshipping Dünyanızı Sizinle Ele Başlayıp, Yatırım Yapın!
+            MoonAmz Ayrıcalıklarıyla Dropshipping Dünyanızı Sizinle Ele Başlayıp, Yatırım Yapın!
           </motion.p>
           
           <motion.button 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-colors"
+            className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-colors"
           >
             7 GÜN ÜCRETSİZ DENE
           </motion.button>
@@ -261,29 +261,29 @@ const Hero = () => {
 const Features = () => {
   const features = [
     {
-      icon: <FaUser className="text-green-600 text-3xl" />,
+      icon: <FaUser className="text-orange-600 text-3xl" />,
       title: "Yazılıma Kayıt Ol",
       description: "Günlerin vadelerine ile aklını aldın hesaplanıyor içini yaşatmalık aldın yazılım hesap imana belirlenmiş."
     },
     {
-      icon: <FaChartLine className="text-green-600 text-3xl" />,
+      icon: <FaChartLine className="text-orange-600 text-3xl" />,
       title: "Strateji Belirle",
       description: "Süre seçimi, zamanın hesaplama karşılayacak ile çıkara kâr sık amazon satış içinde stratejileri çığır açan başlangıç imkansız."
     },
     {
-      icon: <FaShoppingCart className="text-green-600 text-3xl" />,
+      icon: <FaShoppingCart className="text-orange-600 text-3xl" />,
       title: "Satış Yap",
       description: "Amazon dropshipping süreclerini ve üçüncü göz, satış sürecini alacak düğün sağlamak hazırlayıcı, müşteriler kampanyalı."
     },
     {
-      icon: <FaChartLine className="text-green-600 text-3xl" />,
+      icon: <FaChartLine className="text-orange-600 text-3xl" />,
       title: "Ek Gelir Kazan",
-      description: "OneAmz işin sana yaratacağı, günlük alım dropshipping sürecini ve kâr yüzdeleri tüm satış olarak hayalınızı satışlara."
+      description: "MoonAmz işin sana yaratacağı, günlük alım dropshipping sürecini ve kâr yüzdeleri tüm satış olarak hayalınızı satışlara."
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="avantajlar" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           {features.map((feature, index) => (
