@@ -310,26 +310,26 @@ const Features = () => {
 // Partnership Component
 const Partnership = () => {
   return (
-    <section className="py-20 bg-white">
+    <section id="yazilimlarimiz" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              20 Farklı Ülkede Resmi Amazon Partneri OneAmz ile Satış Yap!
+              20 Farklı Ülkede Resmi Amazon Partneri MoonAmz ile Satış Yap!
             </h2>
             <p className="text-gray-600 mb-8">
-              OneAmz ile Amazon Dropshipping ile yaşlık ile kâr ile başlayıp, yaşattıkların.
+              MoonAmz ile Amazon Dropshipping ile yaşlık ile kâr ile başlayıp, yaşattıkların.
               Dünyada farklı kırayacak zenilk gelişiçimden versin müşteriler yaşamak sıkça de sık,
               ayda sene yaşadıkları, tamam sadece yaşı sürey sıkça çoğunlukla istişlik sürecini hep
               sağlayın.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-center space-x-3">
-                <FaCheck className="text-green-600" />
+                <FaCheck className="text-orange-600" />
                 <span className="text-gray-700">Müşteri Memnuniyeti</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FaCheck className="text-green-600" />
+                <FaCheck className="text-orange-600" />
                 <span className="text-gray-700">Güvenli Dropshipping</span>
               </div>
             </div>
@@ -364,18 +364,18 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="ozellikler" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <FaCheck className="text-green-600 mr-3" />
+              <FaCheck className="text-orange-600 mr-3" />
               Müşteri Memnuniyeti
             </h3>
             <div className="space-y-4">
               {leftBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <FaCheck className="text-green-600 mt-1 flex-shrink-0" />
+                  <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
                   <p className="text-gray-600">{benefit}</p>
                 </div>
               ))}
@@ -383,13 +383,13 @@ const Benefits = () => {
           </div>
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <FaShieldAlt className="text-green-600 mr-3" />
+              <FaShieldAlt className="text-orange-600 mr-3" />
               Güvenli Dropshipping
             </h3>
             <div className="space-y-4">
               {rightBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <FaCheck className="text-green-600 mt-1 flex-shrink-0" />
+                  <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
                   <p className="text-gray-600">{benefit}</p>
                 </div>
               ))}
