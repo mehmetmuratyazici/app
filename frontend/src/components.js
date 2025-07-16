@@ -290,7 +290,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-900 text-white">
+    <section className="py-20 bg-gray-900 text-white" id="iletisim">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
