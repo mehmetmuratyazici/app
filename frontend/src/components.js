@@ -1,75 +1,210 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes } from 'react-icons/fa';
+import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes, FaEye, FaEyeSlash } from 'react-icons/fa';
+
+// Login Modal Component
+const LoginModal = ({ isOpen, onClose }) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Login attempt:', formData);
+    alert('Giriş başarılı! (Demo amaçlı)');
+    onClose();
+    setFormData({ email: '', password: '' });
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="bg-white rounded-lg p-8 max-w-md w-full mx-4"
+      >
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-800">Giriş Yap</h2>
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700 text-xl"
+          >
+            <FaTimes />
+          </button>
+        </div>
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              E-posta Adresi
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500"
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Şifre
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 pr-12"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-3 text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
+          </div>
+          
+          <div className="flex items-center justify-between">
+            <label className="flex items-center">
+              <input type="checkbox" className="mr-2 accent-orange-500" />
+              <span className="text-sm text-gray-600">Beni Hatırla</span>
+            </label>
+            <a href="#" className="text-sm text-orange-600 hover:text-orange-700">
+              Şifremi Unuttum
+            </a>
+          </div>
+          
+          <button
+            type="submit"
+            className="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+          >
+            Giriş Yap
+          </button>
+        </form>
+        
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600">
+            Hesabınız yok mu?{' '}
+            <a href="#" className="text-orange-600 hover:text-orange-700 font-semibold">
+              Kayıt Ol
+            </a>
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 // Header Component
 const Header = ({ isMenuOpen, setIsMenuOpen }) => {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <span className="text-2xl font-bold text-green-600">one</span>
-            <span className="text-2xl font-bold text-gray-800">amz</span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#avantajlar" className="text-gray-700 hover:text-green-600 transition-colors">Avantajlar</a>
-            <a href="#yazilimlarimiz" className="text-gray-700 hover:text-green-600 transition-colors">Yazılımlarımız</a>
-            <a href="#paketler" className="text-gray-700 hover:text-green-600 transition-colors">Paketler</a>
-            <a href="#ozellikler" className="text-gray-700 hover:text-green-600 transition-colors">Özellikler</a>
-            <a href="#hakkimizda" className="text-gray-700 hover:text-green-600 transition-colors">Hakkımızda</a>
-            <a href="#iletisim" className="text-gray-700 hover:text-green-600 transition-colors">İletişim</a>
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-700">TR</span>
-              <div className="w-4 h-4 bg-red-500 rounded-full"></div>
+    <>
+      <header className="bg-white shadow-lg sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-orange-600">moon</span>
+              <span className="text-2xl font-bold text-gray-800">amz</span>
             </div>
-          </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-green-600 hover:text-green-700 transition-colors">Giriş Yap</button>
-            <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-              Şimdi Dene
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <button onClick={() => scrollToSection('avantajlar')} className="text-gray-700 hover:text-orange-600 transition-colors">Avantajlar</button>
+              <button onClick={() => scrollToSection('yazilimlarimiz')} className="text-gray-700 hover:text-orange-600 transition-colors">Yazılımlarımız</button>
+              <button onClick={() => scrollToSection('paketler')} className="text-gray-700 hover:text-orange-600 transition-colors">Paketler</button>
+              <button onClick={() => scrollToSection('ozellikler')} className="text-gray-700 hover:text-orange-600 transition-colors">Özellikler</button>
+              <button onClick={() => scrollToSection('hakkimizda')} className="text-gray-700 hover:text-orange-600 transition-colors">Hakkımızda</button>
+              <button onClick={() => scrollToSection('iletisim')} className="text-gray-700 hover:text-orange-600 transition-colors">İletişim</button>
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-700">TR</span>
+                <div className="w-4 h-4 bg-red-500 rounded-full"></div>
+              </div>
+            </nav>
+
+            {/* CTA Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
+              <button 
+                onClick={() => setIsLoginOpen(true)}
+                className="text-orange-600 hover:text-orange-700 transition-colors"
+              >
+                Giriş Yap
+              </button>
+              <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors">
+                Şimdi Dene
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-gray-700"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="md:hidden mt-4 pb-4 border-t border-gray-200"
+            >
+              <nav className="flex flex-col space-y-4 pt-4">
+                <button onClick={() => scrollToSection('avantajlar')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">Avantajlar</button>
+                <button onClick={() => scrollToSection('yazilimlarimiz')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">Yazılımlarımız</button>
+                <button onClick={() => scrollToSection('paketler')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">Paketler</button>
+                <button onClick={() => scrollToSection('ozellikler')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">Özellikler</button>
+                <button onClick={() => scrollToSection('hakkimizda')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">Hakkımızda</button>
+                <button onClick={() => scrollToSection('iletisim')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">İletişim</button>
+                <div className="flex flex-col space-y-2 pt-4">
+                  <button 
+                    onClick={() => setIsLoginOpen(true)}
+                    className="text-orange-600 hover:text-orange-700 transition-colors text-left"
+                  >
+                    Giriş Yap
+                  </button>
+                  <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors">
+                    Şimdi Dene
+                  </button>
+                </div>
+              </nav>
+            </motion.div>
+          )}
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 pb-4 border-t border-gray-200"
-          >
-            <nav className="flex flex-col space-y-4 pt-4">
-              <a href="#avantajlar" className="text-gray-700 hover:text-green-600 transition-colors">Avantajlar</a>
-              <a href="#yazilimlarimiz" className="text-gray-700 hover:text-green-600 transition-colors">Yazılımlarımız</a>
-              <a href="#paketler" className="text-gray-700 hover:text-green-600 transition-colors">Paketler</a>
-              <a href="#ozellikler" className="text-gray-700 hover:text-green-600 transition-colors">Özellikler</a>
-              <a href="#hakkimizda" className="text-gray-700 hover:text-green-600 transition-colors">Hakkımızda</a>
-              <a href="#iletisim" className="text-gray-700 hover:text-green-600 transition-colors">İletişim</a>
-              <div className="flex flex-col space-y-2 pt-4">
-                <button className="text-green-600 hover:text-green-700 transition-colors text-left">Giriş Yap</button>
-                <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                  Şimdi Dene
-                </button>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </div>
-    </header>
+      </header>
+      
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+    </>
   );
 };
 
