@@ -425,7 +425,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-900 text-white" id="iletisim">
+    <section id="iletisim" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -441,7 +441,7 @@ const Contact = () => {
                   placeholder="Adınız Soyadınız"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
                   required
                 />
                 <input
@@ -450,7 +450,7 @@ const Contact = () => {
                   placeholder="E-posta Adresiniz"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
                   required
                 />
               </div>
@@ -460,7 +460,7 @@ const Contact = () => {
                 placeholder="Telefon Numaranız"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
                 required
               />
               <textarea
@@ -469,12 +469,12 @@ const Contact = () => {
                 rows="4"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
                 required
               ></textarea>
               <button
                 type="submit"
-                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
               >
                 Gönder
               </button>
