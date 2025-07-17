@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './App.css';
 import { Components } from './components';
+import { AuthProvider, useAuth } from 'react-oidc-context';
 
 const {
   Header,
@@ -18,15 +19,15 @@ const {
   Testimonials,
   Warehouse,
   Blog,
-  Footer
+  Footer,
+  Dashboard
 } = Components;
 
-const Home = () => {
+const Home = ({ onLoginSuccess }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white">
-      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} onLoginSuccess={onLoginSuccess} />
       <Hero />
       <Features />
       <Partnership />
@@ -47,11 +48,12 @@ const Home = () => {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }

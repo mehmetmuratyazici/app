@@ -20,12 +20,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #10b981;
+    background: #ff9800;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #059669;
+    background: #fb8c00;
 }
 
 /* Smooth scrolling */
@@ -68,19 +68,19 @@ html {
 
 /* Green theme customization */
 .text-green-custom {
-    color: #10b981;
+    color: #ff9800;
 }
 
 .bg-green-custom {
-    background-color: #10b981;
+    background-color: #ff9800;
 }
 
 .border-green-custom {
-    border-color: #10b981;
+    border-color: #ff9800;
 }
 
 .hover\:bg-green-custom:hover {
-    background-color: #059669;
+    background-color: #fb8c00;
 }
 
 /* Custom dark gray theme */
@@ -99,14 +99,14 @@ html {
 
 .btn-animate:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
 }
 
 /* Form focus states */
 .form-input:focus {
     outline: none;
-    border-color: #10b981;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    border-color: #ff9800;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
 }
 
 /* Card hover effects */
@@ -121,7 +121,7 @@ html {
 
 /* Custom gradient backgrounds */
 .bg-gradient-green {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: linear-gradient(135deg, #ff9800 0%, #fb8c00 100%);
 }
 
 .bg-gradient-gray {
@@ -159,7 +159,7 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.2));
+    background: linear-gradient(45deg, rgba(255, 152, 0, 0.1), rgba(251, 140, 0, 0.2));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
