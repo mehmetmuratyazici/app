@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes, FaEye, FaEyeSlash, FaMoon, FaSun } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import { useOidc, useOidcUser } from 'react-oidc-context';
@@ -42,7 +42,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 };
 
 // Header Component (login durumuna göre yönlendirme)
-const Header = ({ isMenuOpen, setIsMenuOpen }) => {
+const Header = ({ isMenuOpen, setIsMenuOpen, darkMode, setDarkMode }) => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [language, setLanguage] = useState('TR');
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
@@ -71,104 +71,117 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <>
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-orange-600">moon</span>
-              <span className="text-2xl font-bold text-gray-800">amz</span>
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('avantajlar')} className="text-gray-700 hover:text-orange-600 transition-colors">{t('Avantajlar')}</button>
-              <button onClick={() => scrollToSection('yazilimlarimiz')} className="text-gray-700 hover:text-orange-600 transition-colors">{t('Yazılımlarımız')}</button>
-              <button onClick={() => scrollToSection('paketler')} className="text-gray-700 hover:text-orange-600 transition-colors">{t('Paketler')}</button>
-              <button onClick={() => scrollToSection('ozellikler')} className="text-gray-700 hover:text-orange-600 transition-colors">{t('Özellikler')}</button>
-              <button onClick={() => scrollToSection('hakkimizda')} className="text-gray-700 hover:text-orange-600 transition-colors">{t('Hakkımızda')}</button>
-              <button onClick={() => scrollToSection('iletisim')} className="text-gray-700 hover:text-orange-600 transition-colors">{t('İletişim')}</button>
-              <div className="relative flex items-center space-x-2">
-                <button
-                  className="flex items-center text-gray-700 hover:text-orange-600 focus:outline-none"
-                  onClick={() => setLangDropdownOpen((open) => !open)}
-                >
-                  <span className="mr-1">{language}</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div className="w-4 h-4 bg-red-500 rounded-full"></div>
-                {langDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-24 bg-white border border-gray-200 rounded shadow-lg z-10">
-                    <button
-                      className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${language === 'TR' ? 'font-bold text-orange-600' : ''}`}
-                      onClick={() => handleLanguageChange('TR')}
-                    >
-                      {t('Türkçe')}
-                    </button>
-                    <button
-                      className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${language === 'EN' ? 'font-bold text-orange-600' : ''}`}
-                      onClick={() => handleLanguageChange('EN')}
-                    >
-                      {t('English')}
-                    </button>
-                  </div>
-                )}
-              </div>
-            </nav>
-
-            {/* CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <button 
-                onClick={() => setIsLoginOpen(true)}
-                className="text-orange-600 hover:text-orange-700 transition-colors"
+      <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center">
+            <span className="text-3xl font-extrabold text-orange-600">moon</span>
+            <span className="text-3xl font-extrabold text-gray-800 dark:text-white">amz</span>
+          </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            <button onClick={() => scrollToSection('avantajlar')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors">{t('Avantajlar')}</button>
+            <button onClick={() => scrollToSection('yazilimlarimiz')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors">{t('Yazılımlarımız')}</button>
+            <button onClick={() => scrollToSection('paketler')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors">{t('Paketler')}</button>
+            <button onClick={() => scrollToSection('ozellikler')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors">{t('Özellikler')}</button>
+            <button onClick={() => scrollToSection('hakkimizda')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors">{t('Hakkımızda')}</button>
+            <button onClick={() => scrollToSection('iletisim')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors">{t('İletişim')}</button>
+            {/* Language Dropdown */}
+            <div className="relative flex items-center">
+              <button
+                className="flex items-center text-gray-700 dark:text-gray-200 hover:text-orange-600 focus:outline-none"
+                onClick={() => setLangDropdownOpen((open) => !open)}
               >
-                {t('Giriş Yap')}
+                <span className="mr-1">{language}</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
               </button>
-              <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors" onClick={() => scrollToSection('paketler')}>
-                {t('Şimdi Dene')}
-              </button>
+              {langDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-24 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-lg z-10">
+                  <button
+                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${language === 'TR' ? 'font-bold text-orange-600' : ''}`}
+                    onClick={() => handleLanguageChange('TR')}
+                  >
+                    {t('Türkçe')}
+                  </button>
+                  <button
+                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${language === 'EN' ? 'font-bold text-orange-600' : ''}`}
+                    onClick={() => handleLanguageChange('EN')}
+                  >
+                    {t('English')}
+                  </button>
+                </div>
+              )}
             </div>
-
-            {/* Mobile Menu Button */}
+          </nav>
+          {/* CTA Buttons & Dark Mode Toggle */}
+          <div className="hidden md:flex items-center gap-4">
+            <button 
+              onClick={() => setIsLoginOpen(true)}
+              disabled={isLoginOpen}
+              className={`text-orange-600 hover:text-orange-700 transition-colors ${isLoginOpen ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {t('Giriş Yap')}
+            </button>
+            <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors" onClick={() => scrollToSection('paketler')}>
+              {t('Şimdi Dene')}
+            </button>
+            {/* Dark mode toggle */}
             <button
-              className="md:hidden text-gray-700"
+              aria-label={darkMode ? 'Açık moda geç' : 'Koyu moda geç'}
+              onClick={() => setDarkMode(!darkMode)}
+              className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+            >
+              {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-700" />}
+            </button>
+          </div>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              className="text-gray-700 dark:text-gray-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="md:hidden mt-4 pb-4 border-t border-gray-200"
+            {/* Dark mode toggle (mobile) */}
+            <button
+              aria-label={darkMode ? 'Açık moda geç' : 'Koyu moda geç'}
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
             >
-              <nav className="flex flex-col space-y-4 pt-4">
-                <button onClick={() => scrollToSection('avantajlar')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">{t('Avantajlar')}</button>
-                <button onClick={() => scrollToSection('yazilimlarimiz')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">{t('Yazılımlarımız')}</button>
-                <button onClick={() => scrollToSection('paketler')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">{t('Paketler')}</button>
-                <button onClick={() => scrollToSection('ozellikler')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">{t('Özellikler')}</button>
-                <button onClick={() => scrollToSection('hakkimizda')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">{t('Hakkımızda')}</button>
-                <button onClick={() => scrollToSection('iletisim')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">{t('İletişim')}</button>
-                <div className="flex flex-col space-y-2 pt-4">
-                  <button 
-                    onClick={() => setIsLoginOpen(true)}
-                    className="text-orange-600 hover:text-orange-700 transition-colors text-left"
-                  >
-                    {t('Giriş Yap')}
-                  </button>
-                  <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors" onClick={() => scrollToSection('paketler')}>
-                    {t('Şimdi Dene')}
-                  </button>
-                </div>
-              </nav>
-            </motion.div>
-          )}
+              {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-700" />}
+            </button>
+          </div>
         </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700"
+          >
+            <nav className="flex flex-col space-y-4 pt-4">
+              <button onClick={() => scrollToSection('avantajlar')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors text-left">{t('Avantajlar')}</button>
+              <button onClick={() => scrollToSection('yazilimlarimiz')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors text-left">{t('Yazılımlarımız')}</button>
+              <button onClick={() => scrollToSection('paketler')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors text-left">{t('Paketler')}</button>
+              <button onClick={() => scrollToSection('ozellikler')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors text-left">{t('Özellikler')}</button>
+              <button onClick={() => scrollToSection('hakkimizda')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors text-left">{t('Hakkımızda')}</button>
+              <button onClick={() => scrollToSection('iletisim')} className="text-gray-700 dark:text-gray-200 hover:text-orange-600 transition-colors text-left">{t('İletişim')}</button>
+              <div className="flex flex-col space-y-2 pt-4">
+                <button 
+                  onClick={() => setIsLoginOpen(true)}
+                  disabled={isLoginOpen}
+                  className={`text-orange-600 hover:text-orange-700 transition-colors text-left ${isLoginOpen ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  {t('Giriş Yap')}
+                </button>
+                <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors" onClick={() => scrollToSection('paketler')}>
+                  {t('Şimdi Dene')}
+                </button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
       </header>
-      
       <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
   );
@@ -215,6 +228,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-colors"
+            onClick={redirectToCognitoSignUp}
           >
             {t('7 GÜN ÜCRETSİZ DENE')}
           </motion.button>
@@ -251,7 +265,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="avantajlar" className="py-20 bg-gray-50">
+    <section id="avantajlar" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           {features.map((feature, index) => (
@@ -260,13 +274,13 @@ const Features = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="text-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="mb-4 flex justify-center">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -279,24 +293,24 @@ const Features = () => {
 const Partnership = () => {
   const { t } = useTranslation();
   return (
-    <section id="yazilimlarimiz" className="py-20 bg-white">
+    <section id="yazilimlarimiz" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
               {t('20 Farklı Ülkede Resmi Amazon Partneri MoonAmz ile Satış Yap!')}
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
               {t('MoonAmz ile Amazon Dropshipping ile yaşlık ile kâr ile başlayıp, yaşattıkların. Dünyada farklı kırayacak zenilk gelişiçimden versin müşteriler yaşamak sıkça de sık, ayda sene yaşadıkları, tamam sadece yaşı sürey sıkça çoğunlukla istişlik sürecini hep sağlayın.')}
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-center space-x-3">
                 <FaCheck className="text-orange-600" />
-                <span className="text-gray-700">{t('Müşteri Memnuniyeti')}</span>
+                <span className="text-gray-700 dark:text-gray-200">{t('Müşteri Memnuniyeti')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaCheck className="text-orange-600" />
-                <span className="text-gray-700">{t('Güvenli Dropshipping')}</span>
+                <span className="text-gray-700 dark:text-gray-200">{t('Güvenli Dropshipping')}</span>
               </div>
             </div>
           </div>
@@ -331,11 +345,11 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="ozellikler" className="py-20 bg-gray-50">
+    <section id="ozellikler" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
               <FaCheck className="text-orange-600 mr-3" />
               {t('Müşteri Memnuniyeti')}
             </h3>
@@ -343,13 +357,13 @@ const Benefits = () => {
               {leftBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
-                  <p className="text-gray-600">{benefit}</p>
+                  <p className="text-gray-600 dark:text-gray-300">{benefit}</p>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
               <FaShieldAlt className="text-orange-600 mr-3" />
               {t('Güvenli Dropshipping')}
             </h3>
@@ -357,7 +371,7 @@ const Benefits = () => {
               {rightBenefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
-                  <p className="text-gray-600">{benefit}</p>
+                  <p className="text-gray-600 dark:text-gray-300">{benefit}</p>
                 </div>
               ))}
             </div>
@@ -471,7 +485,7 @@ const Statistics = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 text-center">
           {stats.map((stat, index) => (
@@ -480,12 +494,12 @@ const Statistics = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-6"
+              className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow"
             >
               <div className="text-4xl md:text-5xl font-bold text-orange-600 mb-2">
                 {stat.number}
               </div>
-              <div className="text-gray-600 text-lg">{stat.label}</div>
+              <div className="text-gray-600 dark:text-gray-300 text-lg">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -576,10 +590,10 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="paketler" className="py-20 bg-gray-50">
+    <section id="paketler" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             {t('Paketlerimiz')}
           </h2>
         </div>
@@ -590,19 +604,19 @@ const Pricing = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-6">{pkg.title}</h3>
-              <div className="text-3xl font-bold text-orange-600 mb-4">${pkg.price} <span className="text-base font-medium text-gray-600">/ Ay</span></div>
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">{pkg.title}</h3>
+              <div className="text-3xl font-bold text-orange-600 mb-4">${pkg.price} <span className="text-base font-medium text-gray-600 dark:text-gray-300">/ Ay</span></div>
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start space-x-3">
                     <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">{feature}</span>
+                    <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors" onClick={redirectToCognitoSignUp}>
+              <button className="w-full bg-gray-800 dark:bg-gray-700 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors" onClick={redirectToCognitoSignUp}>
                 {t('PAKETİ SEÇ')}
               </button>
             </motion.div>
@@ -635,10 +649,10 @@ const Support = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             {t('İhtiyacın Olan Tüm Ayrıntılar')} <br />
             {t('Tek Çatı Altında')}
           </h2>
@@ -650,7 +664,7 @@ const Support = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="relative h-48">
                 <img 
@@ -663,7 +677,7 @@ const Support = () => {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-gray-600">{support.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">{support.description}</p>
               </div>
             </motion.div>
           ))}
@@ -698,10 +712,10 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             {t('Üstün Müşteri Memnuniyeti')}
           </h2>
         </div>
@@ -712,7 +726,7 @@ const Testimonials = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
             >
               <div className="flex items-center mb-4">
                 <img 
@@ -721,7 +735,7 @@ const Testimonials = () => {
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-white">{testimonial.name}</h4>
                   <p className="text-orange-600">{testimonial.role}</p>
                 </div>
               </div>
@@ -730,7 +744,7 @@ const Testimonials = () => {
                   <FaStar key={i} className="text-yellow-400" />
                 ))}
               </div>
-              <p className="text-gray-600 italic">"{testimonial.testimonial}"</p>
+              <p className="text-gray-600 dark:text-gray-300 italic">"{testimonial.testimonial}"</p>
             </motion.div>
           ))}
         </div>
@@ -743,7 +757,7 @@ const Testimonials = () => {
 const Warehouse = () => {
   const { t } = useTranslation();
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -754,11 +768,11 @@ const Warehouse = () => {
             />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
               {t('MoonAMZ Ara Depo')} <br />
               {t('Güvenli - Hızlı - Pratik')}
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
               {t('Amazon Dropshipping magazaların için sana yaratacağımız süreçi de teslimatçı yaprağımızla değişerek müşterinin sana Erişim yarrağımızla süreci yakalamasını sağlarız. süreci yakalayıp sürdürmek için müşterinin yaptığı ürünlerle ve süreçle yaşlama sonuçlara yarmıştır.')}
             </p>
           </div>
@@ -796,10 +810,10 @@ const Blog = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             {t('Kısa Bir Mola!')} <br />
             <span className="text-orange-600">{t('MoonAmz')}</span> {t('Blog')}
           </h2>
@@ -811,7 +825,7 @@ const Blog = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               <div className="relative h-48">
                 <img 
@@ -826,10 +840,10 @@ const Blog = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{post.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">{post.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">{post.date}</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">{post.date}</span>
                   <button className="text-orange-600 hover:text-orange-700 font-semibold">
                     {t('Devamını Oku →')}
                   </button>
@@ -852,8 +866,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-orange-600">moon</span>
-              <span className="text-2xl font-bold text-white">amz</span>
+              <span className="text-3xl font-extrabold text-orange-600">moon</span>
+              <span className="text-3xl font-extrabold text-white">amz</span>
             </div>
             <p className="text-gray-400 mb-4">
               {t('MoonAmz Ayrıcalıklarıyla Dropshipping Dünyanızı Sizinle Ele Başlayıp, Yatırım Yapın!')}

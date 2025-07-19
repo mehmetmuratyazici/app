@@ -8,3 +8,5 @@ export const cognitoAuthConfig = {
     scope: "email openid phone",
     post_logout_redirect_uri: window.location.origin + '/',
   };
+
+export const isMaintenance = true;
