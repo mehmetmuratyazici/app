@@ -55,11 +55,8 @@ const Dashboard = ({ darkMode, setDarkMode }) => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
           >
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 max-w-md w-full text-center border-2 border-orange-500">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Bilgilendirme</h2>
-              <p className="text-gray-700 dark:text-gray-200 text-lg">
-                Size daha iyi hizmet verebilmek için <span className="text-orange-600 font-semibold">değişiklikler yapıyoruz</span>.<br/>
-                Süreç tamamlandığında sizi bilgilendireceğiz.
-              </p>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{t('maintenance-title')}</h2>
+              <p className="text-gray-700 dark:text-gray-200 text-lg">{t('maintenance-desc')}</p>
             </div>
           </motion.div>
         )}

@@ -209,9 +209,9 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            {t('prof')} <br />
-            <span className="text-orange-500">{t('aws')}</span> <br />
-            {t('cozum')}
+            {t('hero-title')} <br />
+            <span className="text-orange-500">{t('hero-aws')}</span> <br />
+            {t('hero-solution')}
           </motion.h1>
           
           <motion.p 
@@ -220,7 +220,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl mb-8 text-gray-300"
           >
-            {t('hero-desc')}
+            {t('hero-description')}
           </motion.p>
           
           <motion.button 
@@ -230,7 +230,7 @@ const Hero = () => {
             className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-colors"
             onClick={redirectToCognitoSignUp}
           >
-            {t('7 GÜN ÜCRETSİZ DENE')}
+            {t('hero-free-trial')}
           </motion.button>
         </div>
       </div>
@@ -244,23 +244,23 @@ const Features = () => {
   const features = [
     {
       icon: <FaUser className="text-orange-600 text-3xl" />,
-      title: t('Yazılıma Kayıt Ol'),
-      description: t('Hızlı ve kolay kayıt işlemiyle hemen başlayın.'),
+      title: t('features-title-1'),
+      description: t('features-desc-1'),
     },
     {
       icon: <FaChartLine className="text-orange-600 text-3xl" />,
-      title: t('Strateji Belirle'),
-      description: t('Başarılı satış için stratejinizi oluşturun.'),
+      title: t('features-title-2'),
+      description: t('features-desc-2'),
     },
     {
       icon: <FaShoppingCart className="text-orange-600 text-3xl" />,
-      title: t('Satış Yap'),
-      description: t('Ürünlerinizi kolayca satışa sunun ve yönetin.'),
+      title: t('features-title-3'),
+      description: t('features-desc-3'),
     },
     {
       icon: <FaChartLine className="text-orange-600 text-3xl" />,
-      title: t('Ek Gelir Kazan'),
-      description: t('Fazla vakit harcamadan ek gelir elde edin.'),
+      title: t('features-title-4'),
+      description: t('features-desc-4'),
     },
   ];
 
@@ -298,7 +298,7 @@ const Partnership = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
-              {t('20 Farklı Ülkede Resmi Amazon Partneri MoonAmz ile Satış Yap!')}
+              {t('partnership-title')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
               {t('partnership-desc')}
@@ -306,11 +306,11 @@ const Partnership = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-center space-x-3">
                 <FaCheck className="text-orange-600" />
-                <span className="text-gray-700 dark:text-gray-200">{t('Müşteri Memnuniyeti')}</span>
+                <span className="text-gray-700 dark:text-gray-200">{t('partnership-feature-1')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaCheck className="text-orange-600" />
-                <span className="text-gray-700 dark:text-gray-200">{t('Güvenli e-ticaret')}</span>
+                <span className="text-gray-700 dark:text-gray-200">{t('partnership-feature-2')}</span>
               </div>
             </div>
           </div>
@@ -351,7 +351,7 @@ const Benefits = () => {
           <div>
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
               <FaCheck className="text-orange-600 mr-3" />
-              {t('Müşteri Memnuniyeti')}
+              {t('benefits-title-1')}
             </h3>
             <div className="space-y-4">
               {leftBenefits.map((benefit, index) => (
@@ -365,7 +365,7 @@ const Benefits = () => {
           <div>
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
               <FaShieldAlt className="text-orange-600 mr-3" />
-              {t('Güvenli e-ticaret')}
+              {t('benefits-title-2')}
             </h3>
             <div className="space-y-4">
               {rightBenefits.map((benefit, index) => (
@@ -402,7 +402,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Mesajınız alındı! En kısa sürede size dönüş yapacağız.');
+    alert(t('contact-success'));
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
@@ -412,15 +412,15 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t('İletişime Geç')} <br />
-              {t('Hemen Kazanmaya Başla!')}
+              {t('contact-title-1')} <br />
+              {t('contact-title-2')}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   name="name"
-                  placeholder={t('Adınız Soyadınız')}
+                  placeholder={t('contact-name-placeholder')}
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
@@ -429,7 +429,7 @@ const Contact = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder={t('E-posta Adresiniz')}
+                  placeholder={t('contact-email-placeholder')}
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
@@ -439,7 +439,7 @@ const Contact = () => {
               <input
                 type="tel"
                 name="phone"
-                placeholder={t('Telefon Numaranız')}
+                placeholder={t('contact-phone-placeholder')}
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500"
@@ -447,7 +447,7 @@ const Contact = () => {
               />
               <textarea
                 name="message"
-                placeholder={t('Mesajınız')}
+                placeholder={t('contact-message-placeholder')}
                 rows="4"
                 value={formData.message}
                 onChange={handleChange}
@@ -458,7 +458,7 @@ const Contact = () => {
                 type="submit"
                 className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
               >
-                {t('Gönder')}
+                {t('contact-send')}
               </button>
             </form>
           </div>
@@ -479,14 +479,19 @@ const Contact = () => {
 const Statistics = () => {
   const { t } = useTranslation();
   const stats = [
-    { number: '7+', label: t('Yıllık Deneyim') },
-    { number: '8k+', label: t('Mutlu Kullanıcı') },
-    { number: '11+', label: t('Ödeyenen') }
+    { number: '7+', label: t('statistics-label-1') },
+    { number: '8k+', label: t('statistics-label-2') },
+    { number: '11+', label: t('statistics-label-3') }
   ];
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+            {t('statistics-title')}
+          </h2>
+        </div>
         <div className="grid md:grid-cols-3 gap-8 text-center">
           {stats.map((stat, index) => (
             <motion.div
@@ -524,13 +529,13 @@ const Expert = () => {
           </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t('MoonAmz ile Uzman Rehberlikte Tanışın')}
+              {t('expert-title')}
             </h2>
             <p className="text-gray-300 mb-8">
               {t('expert-desc')}
             </p>
             <button className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
-              {t('Uzman Gönder')}
+              {t('expert-button')}
             </button>
           </div>
         </div>
@@ -549,42 +554,42 @@ const Pricing = () => {
   const { t } = useTranslation();
   const packages = [
     {
-      title: t('Temel Paket'),
+      title: t('pricing-package-1'),
       price: 30,
       features: [
-        t('Sürekli A/B Test Desteği Sistemi'),
-        t('Tüm Üzellikleri Proje Raporları'),
-        t('Dünyannm Süreci Raporları'),
-        t('Üretim Ayrıntıları'),
-        t('Sürekli FTB Dökümler Sistemi'),
-        t('Temel Güvenli e-ticaret'),
-        t('Yerel Danışmanlık Doku Faaliyetleri')
+        t('pricing-feature-1'),
+        t('pricing-feature-2'),
+        t('pricing-feature-3'),
+        t('pricing-feature-4'),
+        t('pricing-feature-5'),
+        t('pricing-feature-6'),
+        t('pricing-feature-7'),
       ]
     },
     {
-      title: t('Standart Paket'),
+      title: t('pricing-package-2'),
       price: 50,
       features: [
-        t('Sürekli A/B Test Desteği Sistemi'),
-        t('Tüm Üzellikleri Proje Raporları'),
-        t('Dünyannm Süreci Raporları'),
-        t('Üretim Ayrıntıları'),
-        t('Sürekli FTB Dökümler Sistemi'),
-        t('Sürekli Güvenli e-ticaret'),
-        t('Yerel Danışmanlık Doku Faaliyetleri')
+        t('pricing-feature-1'),
+        t('pricing-feature-2'),
+        t('pricing-feature-3'),
+        t('pricing-feature-4'),
+        t('pricing-feature-5'),
+        t('pricing-feature-8'),
+        t('pricing-feature-7'),
       ]
     },
     {
-      title: t('Premium Paket'),
+      title: t('pricing-package-3'),
       price: 100,
       features: [
-        t('Sürekli A/B Test Desteği Sistemi'),
-        t('Tüm Üzellikleri Proje Raporları'),
-        t('Dünyannm Süreci Raporları'),
-        t('Üretim Ayrıntıları'),
-        t('Sürekli FTB Dökümler Sistemi'),
-        t('Sürekli Güvenli e-ticaret'),
-        t('Yerel Danışmanlık Doku Faaliyetleri')
+        t('pricing-feature-1'),
+        t('pricing-feature-2'),
+        t('pricing-feature-3'),
+        t('pricing-feature-4'),
+        t('pricing-feature-5'),
+        t('pricing-feature-8'),
+        t('pricing-feature-7'),
       ]
     }
   ];
@@ -594,7 +599,7 @@ const Pricing = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('Paketlerimiz')}
+            {t('pricing-title')}
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -607,7 +612,7 @@ const Pricing = () => {
               className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
             >
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">{pkg.title}</h3>
-              <div className="text-3xl font-bold text-orange-600 mb-4">${pkg.price} <span className="text-base font-medium text-gray-600 dark:text-gray-300">/ Ay</span></div>
+              <div className="text-3xl font-bold text-orange-600 mb-4">${pkg.price} <span className="text-base font-medium text-gray-600 dark:text-gray-300">/ {t('pricing-period')}</span></div>
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start space-x-3">
@@ -617,7 +622,7 @@ const Pricing = () => {
                 ))}
               </ul>
               <button className="w-full bg-gray-800 dark:bg-gray-700 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors" onClick={redirectToCognitoSignUp}>
-                {t('PAKETİ SEÇ')}
+                {t('pricing-select')}
               </button>
             </motion.div>
           ))}
@@ -632,18 +637,18 @@ const Support = () => {
   const { t } = useTranslation();
   const supportTypes = [
     {
-      title: t('YAZILIM'),
-      description: t('Yazılım ve teknik destek alanında uzman ekibimiz 7/24 hizmetinizdedir. Tüm sorularınız için buradayız.'),
+      title: t('support-type-1'),
+      description: t('support-desc-1'),
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
     },
     {
-      title: t('ARA DEPO'),
-      description: t('e-ticaret süreçlerinizde ara depo hizmetleri ile güvenli ve hızlı teslimat sağlayın.'),
+      title: t('support-type-2'),
+      description: t('support-desc-2'),
       image: "https://images.unsplash.com/photo-1553413077-190dd305871c"
     },
     {
-      title: t('DESTEK'),
-      description: t('Müşteri hizmetleri ve satış sonrası destek ile her zaman yanınızdayız. Sorularınız için iletişime geçin.'),
+      title: t('support-type-3'),
+      description: t('support-desc-3'),
       image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5"
     }
   ];
@@ -653,8 +658,8 @@ const Support = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('İhtiyacın Olan Tüm Ayrıntılar')} <br />
-            {t('Tek Çatı Altında')}
+            {t('support-title-1')} <br />
+            {t('support-title-2')}
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -692,22 +697,22 @@ const Testimonials = () => {
   const { t } = useTranslation();
   const testimonials = [
     {
-      name: t('Murat Ö.'),
-      role: t('Satıcı'),
+      name: t('testimonials-name-1'),
+      role: t('testimonials-role-1'),
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-      testimonial: t('MoonAmz ile çalışmaya başladıktan sonra satışlarım 3 katına çıktı. Profesyonel destek ve güvenilir sistem sayesinde işimi büyüttüm. Herkese tavsiye ederim çünkü gerçekten işe yarıyor.')
+      testimonial: t('testimonials-text-1')
     },
     {
-      name: t('Ayşe S.'),
-      role: t('E-ticaret Uzmanı'),
+      name: t('testimonials-name-2'),
+      role: t('testimonials-role-2'),
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bb",
-      testimonial: t('Amazon e-ticaret konusunda hiç deneyimim yoktu. MoonAmz ekibi bana her adımda yardımcı oldu. Şimdi ayda düzenli gelir elde ediyorum ve çok memnunum. Teşekkürler MoonAmz!')
+      testimonial: t('testimonials-text-2')
     },
     {
-      name: t('Buğra A.'),
-      role: t('Yeni Başlayan'),
+      name: t('testimonials-name-3'),
+      role: t('testimonials-role-3'),
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-      testimonial: t('Başlangıçta çok tedirgin oldum açıkçası. Ama MoonAmz\'nin verdiği eğitim ve destek sayesinde kısa sürede başarılı olmaya başladım. Yazılım çok kullanışlı ve anlaşılır.')
+      testimonial: t('testimonials-text-3')
     }
   ];
 
@@ -716,7 +721,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('Üstün Müşteri Memnuniyeti')}
+            {t('testimonials-title')}
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -769,8 +774,8 @@ const Warehouse = () => {
           </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
-              {t('MoonAMZ Ara Depo')} <br />
-              {t('Güvenli - Hızlı - Pratik')}
+              {t('warehouse-title-1')} <br />
+              {t('warehouse-title-2')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
               {t('warehouse-desc')}
@@ -787,25 +792,25 @@ const Blog = () => {
   const { t } = useTranslation();
   const blogPosts = [
     {
-      title: t('Amazon e-ticaret\'in Temellerini Yakalayan'),
+      title: t('blog-title-1'),
       excerpt: t('blog-excerpt-1'),
       image: "https://images.unsplash.com/photo-1590761044169-b9ad903fca4d",
-      category: t('Başlangıç'),
-      date: t('15 Haziran 2024')
+      category: t('blog-category-1'),
+      date: t('blog-date-1')
     },
     {
-      title: t('En Büyük Satış Süreçleri ile Durumu Değiştitebilirsin...'),
+      title: t('blog-title-2'),
       excerpt: t('blog-excerpt-2'),
       image: "https://images.unsplash.com/photo-1711852700869-17004fc26e44",
-      category: t('Pazarlama'),
-      date: t('10 Haziran 2024')
+      category: t('blog-category-2'),
+      date: t('blog-date-2')
     },
     {
-      title: t('Amazon e-ticaret Müşteri Değiştirmelerin Önemi: Başarının Oral Açıkları'),
+      title: t('blog-title-3'),
       excerpt: t('blog-excerpt-3'),
       image: "https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg",
-      category: t('Müşteri Hizmetleri'),
-      date: t('5 Haziran 2024')
+      category: t('blog-category-3'),
+      date: t('blog-date-3')
     }
   ];
 
@@ -814,8 +819,8 @@ const Blog = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('Kısa Bir Mola!')} <br />
-            <span className="text-orange-600">{t('MoonAmz')}</span> {t('Blog')}
+            {t('blog-title-main-1')} <br />
+            <span className="text-orange-600">{t('blog-title-main-2')}</span> {t('blog-title-main-3')}
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -845,7 +850,7 @@ const Blog = () => {
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500 dark:text-gray-400">{post.date}</span>
                   <button className="text-orange-600 hover:text-orange-700 font-semibold">
-                    {t('Devamını Oku →')}
+                    {t('blog-read-more')}
                   </button>
                 </div>
               </div>
@@ -879,9 +884,8 @@ const Footer = () => {
               <FaLinkedin className="text-xl hover:text-orange-600 cursor-pointer transition-colors" />
             </div>
           </div>
-          
           <div>
-            <h4 className="text-lg font-semibold mb-4">{t('Menü')}</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('footer-menu-title')}</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Avantajlar')}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Yazılımlarımız')}</a></li>
@@ -891,41 +895,38 @@ const Footer = () => {
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('İletişim')}</a></li>
             </ul>
           </div>
-          
           <div>
-            <h4 className="text-lg font-semibold mb-4">{t('Hızlı Erişim')}</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('footer-quick-title')}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('e-ticaret Yasal Hizmet Şartları')}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Gizlilik Politikası')}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Çerez Politikası')}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Yasal Uyarı')}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Mesafeli Satış Sözleşmesi')}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('footer-legal-1')}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('footer-legal-2')}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('footer-legal-3')}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('footer-legal-4')}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('footer-legal-5')}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Hakkımızda')}</a></li>
             </ul>
           </div>
-          
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('İletişim')}</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <FaPhoneAlt className="text-orange-600" />
-                <span className="text-gray-400">+90 123 456 78 90</span>
+                <span className="text-gray-400">{t('footer-phone')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="text-orange-600" />
-                <span className="text-gray-400">info@moonamz.com</span>
+                <span className="text-gray-400">{t('footer-email')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaMapMarkerAlt className="text-orange-600" />
-                <span className="text-gray-400">İstanbul, Türkiye</span>
+                <span className="text-gray-400">{t('footer-address')}</span>
               </div>
             </div>
           </div>
         </div>
-        
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            {t('© 2024 MoonAmz. Tüm hakları saklıdır.')}
+            {t('footer-copyright')}
           </p>
         </div>
       </div>
