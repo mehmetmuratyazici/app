@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaShoppingCart, FaUsers, FaChartLine, FaWarehouse, FaSignOutAlt, FaHome, FaBoxOpen, FaBoxes, FaSun, FaMoon } from 'react-icons/fa';
 import { isMaintenance } from './config';
+import { useTranslation } from 'react-i18next';
 const kpiCards = [
   {
     icon: <FaShoppingCart className="text-3xl text-orange-500 mb-2" />,
@@ -37,6 +38,7 @@ const navLinks = [
 const Dashboard = ({ darkMode, setDarkMode }) => {
   const auth = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   if (!auth.isAuthenticated) {
     navigate('/');
     return null;
