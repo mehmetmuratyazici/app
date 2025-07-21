@@ -209,9 +209,9 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            {t('Profesyonel')} <br />
-            <span className="text-orange-500">{t('Dropshipping')}</span> <br />
-            {t('Çözümleri')}
+            {t('prof')} <br />
+            <span className="text-orange-500">{t('aws')}</span> <br />
+            {t('cozum')}
           </motion.h1>
           
           <motion.p 
@@ -220,7 +220,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl mb-8 text-gray-300"
           >
-            {t('MoonAmz Ayrıcalıklarıyla Dropshipping Dünyanızı Sizinle Ele Başlayıp, Yatırım Yapın!')}
+            {t('hero-desc')}
           </motion.p>
           
           <motion.button 
@@ -245,23 +245,23 @@ const Features = () => {
     {
       icon: <FaUser className="text-orange-600 text-3xl" />,
       title: t('Yazılıma Kayıt Ol'),
-      description: t('Günlerin vadelerine ile aklını aldın hesaplanıyor içini yaşatmalık aldın yazılım hesap imana belirlenmiş.')
+      description: t('Hızlı ve kolay kayıt işlemiyle hemen başlayın.'),
     },
     {
       icon: <FaChartLine className="text-orange-600 text-3xl" />,
       title: t('Strateji Belirle'),
-      description: t('Süre seçimi, zamanın hesaplama karşılayacak ile çıkara kâr sık amazon satış içinde stratejileri çığır açan başlangıç imkansız.')
+      description: t('Başarılı satış için stratejinizi oluşturun.'),
     },
     {
       icon: <FaShoppingCart className="text-orange-600 text-3xl" />,
       title: t('Satış Yap'),
-      description: t('Amazon dropshipping süreclerini ve üçüncü göz, satış sürecini alacak düğün sağlamak hazırlayıcı, müşteriler kampanyalı.')
+      description: t('Ürünlerinizi kolayca satışa sunun ve yönetin.'),
     },
     {
       icon: <FaChartLine className="text-orange-600 text-3xl" />,
       title: t('Ek Gelir Kazan'),
-      description: t('MoonAmz işin sana yaratacağı, günlük alım dropshipping sürecini ve kâr yüzdeleri tüm satış olarak hayalınızı satışlara.')
-    }
+      description: t('Fazla vakit harcamadan ek gelir elde edin.'),
+    },
   ];
 
   return (
@@ -301,7 +301,7 @@ const Partnership = () => {
               {t('20 Farklı Ülkede Resmi Amazon Partneri MoonAmz ile Satış Yap!')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              {t('MoonAmz ile Amazon Dropshipping ile yaşlık ile kâr ile başlayıp, yaşattıkların. Dünyada farklı kırayacak zenilk gelişiçimden versin müşteriler yaşamak sıkça de sık, ayda sene yaşadıkları, tamam sadece yaşı sürey sıkça çoğunlukla istişlik sürecini hep sağlayın.')}
+              {t('partnership-desc')}
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-center space-x-3">
@@ -310,7 +310,7 @@ const Partnership = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <FaCheck className="text-orange-600" />
-                <span className="text-gray-700 dark:text-gray-200">{t('Güvenli Dropshipping')}</span>
+                <span className="text-gray-700 dark:text-gray-200">{t('Güvenli e-ticaret')}</span>
               </div>
             </div>
           </div>
@@ -331,17 +331,17 @@ const Partnership = () => {
 const Benefits = () => {
   const { t } = useTranslation();
   const leftBenefits = [
-    t('Günlerin yazılım sürecindeki yaşı gelişi: müşturi, sataşlardaki fikrinsindeki ayda artımalıya geliş sızlığı geliş günlerde yaşamak veriş satış etkisinde kalanları yaşatır müşteriler karşılayıcı gelire'),
-    t('Aylık yeminlik, ayda baçı çıkardığı vafındaki alanları kalanları yaşatılmadan süreç belli satış sürecini hep sağlayın'),
-    t('Günlük biriler kızlarının etki birleşim karşılayacan etmek yaşı sıkça değiştirmektedir'),
-    t('Zaman yaşatlar güıratırılanlara çıkarmakta yaşadıkları, günlerin yaşalarına öğren yaşatır etkisini kalmakta kırlarının')
+    t('benefits-left-1'),
+    t('benefits-left-2'),
+    t('benefits-left-3'),
+    t('benefits-left-4'),
   ];
 
   const rightBenefits = [
-    t('Amazon Dropshipping ile müşteriler yaşlık ile hesap, günlerin yazılım sürecindeki yaşı gelişi: müşturi, sataşlardaki olması yaşatır müşteriler'),
-    t('Aylık yeminlik, ayda baçı çıkardığı vafındaki alanları kalanları yaşatılmadan süreç belli satış sürecini hep sağlayın kırlarının'),
-    t('Günlük biriler kızlarının etki birleşim karşılayacan etmek yaşı sıkça değiştirmektedir'),
-    t('Zaman yaşatlar güıratırılanlara çıkarmakta yaşadıkları, günlerin yaşalarına öğren yaşatır etkisini kalmakta kırlarının')
+    t('benefits-right-1'),
+    t('benefits-right-2'),
+    t('benefits-right-3'),
+    t('benefits-right-4'),
   ];
 
   return (
@@ -365,7 +365,7 @@ const Benefits = () => {
           <div>
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
               <FaShieldAlt className="text-orange-600 mr-3" />
-              {t('Güvenli Dropshipping')}
+              {t('Güvenli e-ticaret')}
             </h3>
             <div className="space-y-4">
               {rightBenefits.map((benefit, index) => (
@@ -527,7 +527,7 @@ const Expert = () => {
               {t('MoonAmz ile Uzman Rehberlikte Tanışın')}
             </h2>
             <p className="text-gray-300 mb-8">
-              {t('Dropshipping büyüştürmek süküş, süreci ile gizliliği ve yaşlı düşünceleştir düşünseldir ve yaklaşımların sata yapınış tutarak ve süreklerini, birçok ve anlayışıyla, MoonAmz ekibinin yapacağı deneyimlerden küçük süret önal herkezi kâr bulacak kıra sürecini şekliyle öylemenin.')}
+              {t('expert-desc')}
             </p>
             <button className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
               {t('Uzman Gönder')}
@@ -557,7 +557,7 @@ const Pricing = () => {
         t('Dünyannm Süreci Raporları'),
         t('Üretim Ayrıntıları'),
         t('Sürekli FTB Dökümler Sistemi'),
-        t('Temel Güvenli Dropshipping'),
+        t('Temel Güvenli e-ticaret'),
         t('Yerel Danışmanlık Doku Faaliyetleri')
       ]
     },
@@ -570,7 +570,7 @@ const Pricing = () => {
         t('Dünyannm Süreci Raporları'),
         t('Üretim Ayrıntıları'),
         t('Sürekli FTB Dökümler Sistemi'),
-        t('Sürekli Güvenli Dropshipping'),
+        t('Sürekli Güvenli e-ticaret'),
         t('Yerel Danışmanlık Doku Faaliyetleri')
       ]
     },
@@ -583,7 +583,7 @@ const Pricing = () => {
         t('Dünyannm Süreci Raporları'),
         t('Üretim Ayrıntıları'),
         t('Sürekli FTB Dökümler Sistemi'),
-        t('Sürekli Güvenli Dropshipping'),
+        t('Sürekli Güvenli e-ticaret'),
         t('Yerel Danışmanlık Doku Faaliyetleri')
       ]
     }
@@ -638,7 +638,7 @@ const Support = () => {
     },
     {
       title: t('ARA DEPO'),
-      description: t('Dropshipping süreçlerinizde ara depo hizmetleri ile güvenli ve hızlı teslimat sağlayın.'),
+      description: t('e-ticaret süreçlerinizde ara depo hizmetleri ile güvenli ve hızlı teslimat sağlayın.'),
       image: "https://images.unsplash.com/photo-1553413077-190dd305871c"
     },
     {
@@ -693,7 +693,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: t('Murat Ö.'),
-      role: t('Dropshipper'),
+      role: t('Satıcı'),
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       testimonial: t('MoonAmz ile çalışmaya başladıktan sonra satışlarım 3 katına çıktı. Profesyonel destek ve güvenilir sistem sayesinde işimi büyüttüm. Herkese tavsiye ederim çünkü gerçekten işe yarıyor.')
     },
@@ -701,7 +701,7 @@ const Testimonials = () => {
       name: t('Ayşe S.'),
       role: t('E-ticaret Uzmanı'),
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bb",
-      testimonial: t('Amazon dropshipping konusunda hiç deneyimim yoktu. MoonAmz ekibi bana her adımda yardımcı oldu. Şimdi ayda düzenli gelir elde ediyorum ve çok memnunum. Teşekkürler MoonAmz!')
+      testimonial: t('Amazon e-ticaret konusunda hiç deneyimim yoktu. MoonAmz ekibi bana her adımda yardımcı oldu. Şimdi ayda düzenli gelir elde ediyorum ve çok memnunum. Teşekkürler MoonAmz!')
     },
     {
       name: t('Buğra A.'),
@@ -773,7 +773,7 @@ const Warehouse = () => {
               {t('Güvenli - Hızlı - Pratik')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              {t('Amazon Dropshipping magazaların için sana yaratacağımız süreçi de teslimatçı yaprağımızla değişerek müşterinin sana Erişim yarrağımızla süreci yakalamasını sağlarız. süreci yakalayıp sürdürmek için müşterinin yaptığı ürünlerle ve süreçle yaşlama sonuçlara yarmıştır.')}
+              {t('warehouse-desc')}
             </p>
           </div>
         </div>
@@ -787,22 +787,22 @@ const Blog = () => {
   const { t } = useTranslation();
   const blogPosts = [
     {
-      title: t('Amazon Dropshipping\'in Temellerini Yakalayan'),
-      excerpt: t('Amazon Dropshipping ile ilgili başlangıç rehberi. Daha alıcı süreci, alıcılar mağazası temellerini alıcı mağazasını. Alıcı alıcı alıcı süreçlerini hep gözlemleyin. Bu blog yazısında Amazon dropshipping sürecinin tüm ayrıntılarını ele alacağız.'),
+      title: t('Amazon e-ticaret\'in Temellerini Yakalayan'),
+      excerpt: t('blog-excerpt-1'),
       image: "https://images.unsplash.com/photo-1590761044169-b9ad903fca4d",
       category: t('Başlangıç'),
       date: t('15 Haziran 2024')
     },
     {
       title: t('En Büyük Satış Süreçleri ile Durumu Değiştitebilirsin...'),
-      excerpt: t('Satış süreçlerini nasıl optimize edebileceğinizi öğrenin. En büyük satış süreçleri ile durumu değiştitebilirsiniz. Süreçleri, yazılımı hızla yasıtabilirsiniz. Alıcılar mağazalarını satış süreçlerini hep gözlemleyin düşünüşlerinizi.'),
+      excerpt: t('blog-excerpt-2'),
       image: "https://images.unsplash.com/photo-1711852700869-17004fc26e44",
       category: t('Pazarlama'),
       date: t('10 Haziran 2024')
     },
     {
-      title: t('Amazon Dropshipping Müşteri Değiştirmelerin Önemi: Başarının Oral Açıkları'),
-      excerpt: t('Müşteri değiştirmelerin dropshipping sürecinde nasıl bir öneme sahip olduğunu öğrenin. Müşteri memnuniyeti için önemli ipuçları ve stratejiler. Müşteri deneyimini artırma yolları ve başarılı satış teknikleri.'),
+      title: t('Amazon e-ticaret Müşteri Değiştirmelerin Önemi: Başarının Oral Açıkları'),
+      excerpt: t('blog-excerpt-3'),
       image: "https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg",
       category: t('Müşteri Hizmetleri'),
       date: t('5 Haziran 2024')
@@ -870,7 +870,7 @@ const Footer = () => {
               <span className="text-3xl font-extrabold text-white">amz</span>
             </div>
             <p className="text-gray-400 mb-4">
-              {t('MoonAmz Ayrıcalıklarıyla Dropshipping Dünyanızı Sizinle Ele Başlayıp, Yatırım Yapın!')}
+              {t('footer-desc')}
             </p>
             <div className="flex space-x-4">
               <FaFacebook className="text-xl hover:text-orange-600 cursor-pointer transition-colors" />
@@ -895,7 +895,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('Hızlı Erişim')}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Dropshipping Yasal Hizmet Şartları')}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('e-ticaret Yasal Hizmet Şartları')}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Gizlilik Politikası')}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Çerez Politikası')}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">{t('Yasal Uyarı')}</a></li>

@@ -6,7 +6,14 @@ module.exports = {
     "./public/index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        orange: {
+          500: '#FF9900', // Amazon Orange
+          600: '#e88b00', // Slightly darker for hover
+        },
+      },
+    },
   },
   plugins: [],
 };

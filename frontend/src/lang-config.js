@@ -12,7 +12,25 @@ const resources = {
         "7 GÜN ÜCRETSİZ DENE": "7 GÜN ÜCRETSİZ DENE",
         "English": "İngilizce",
         "Türkçe": "Türkçe",
-        // ... diğer metinler ...
+        "prof":"Profesyonel",
+        "cozum":"Çözümleri",
+        "aws":"Amazon",
+        "hero-desc": "Amazon ve e-ticaret dünyasında başarıya ulaşmanız için en kolay ve hızlı yol MoonAmz ile başlar.",
+        "partnership-desc": "MoonAmz, 20'den fazla ülkede resmi Amazon partneri olarak güvenli ve hızlı e-ticaret deneyimi sunar. Tüm süreçlerde yanınızdayız.",
+        "benefits-left-1": "Müşteri memnuniyetini ön planda tutan destek",
+        "benefits-left-2": "Her adımda şeffaf ve güvenilir hizmet",
+        "benefits-left-3": "Satış sonrası sürekli iletişim",
+        "benefits-left-4": "Kişiye özel çözüm ve danışmanlık",
+        "benefits-right-1": "Amazon süreçlerinde tam güvenlik",
+        "benefits-right-2": "Veri gizliliği ve hızlı teslimat",
+        "benefits-right-3": "Uzman ekiple 7/24 destek",
+        "benefits-right-4": "Yasal ve güncel altyapı",
+        "expert-desc": "MoonAmz ekibi, e-ticaret yolculuğunuzda size uzman rehberlik ve pratik çözümler sunar. Her adımda yanınızdayız.",
+        "warehouse-desc": "Ara depo hizmetimizle ürünlerinizi güvenle saklayın, hızlı ve sorunsuz teslimat avantajı yaşayın.",
+        "blog-excerpt-1": "Amazon'un temellerini öğrenin ve ilk satışınızı hızla yapın.",
+        "blog-excerpt-2": "Satış süreçlerinizi optimize edin, başarıya ulaşın.",
+        "blog-excerpt-3": "Müşteri memnuniyetini artırmanın yollarını keşfedin.",
+        "footer-desc": "MoonAmz ile e-ticaret dünyasında fark yaratın. Güvenli, hızlı ve yenilikçi çözümler için buradayız."
       }
     },
     EN: {
@@ -28,7 +46,25 @@ const resources = {
         "7 GÜN ÜCRETSİZ DENE": "TRY 7 DAYS FREE",
         "English": "English",
         "Türkçe": "Turkish",
-        // ... diğer metinler ...
+        "prof":"Professional",
+        "cozum":"Solutions",
+        "aws":"Amazon",
+        "hero-desc": "The easiest and fastest way to succeed in Amazon and e-commerce starts with MoonAmz.",
+        "partnership-desc": "As an official Amazon partner in 20+ countries, MoonAmz offers a secure and fast e-commerce experience. We are with you at every step.",
+        "benefits-left-1": "Support focused on customer satisfaction",
+        "benefits-left-2": "Transparent and reliable service at every step",
+        "benefits-left-3": "Continuous communication after sales",
+        "benefits-left-4": "Personalized solutions and consultancy",
+        "benefits-right-1": "Full security in Amazon processes",
+        "benefits-right-2": "Data privacy and fast delivery",
+        "benefits-right-3": "24/7 support with expert team",
+        "benefits-right-4": "Legal and up-to-date infrastructure",
+        "expert-desc": "The MoonAmz team offers expert guidance and practical solutions on your e-commerce journey. We are with you every step of the way.",
+        "warehouse-desc": "Store your products safely with our warehouse service and enjoy fast, seamless delivery.",
+        "blog-excerpt-1": "Learn the basics of Amazon and make your first sale quickly.",
+        "blog-excerpt-2": "Optimize your sales processes and achieve success.",
+        "blog-excerpt-3": "Discover ways to increase customer satisfaction.",
+        "footer-desc": "Make a difference in e-commerce with MoonAmz. We are here for secure, fast, and innovative solutions."
       }
     }
   };
