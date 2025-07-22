@@ -5,7 +5,7 @@ export const cognitoAuthConfig = {
     client_id: "vttgh3ahkve1e23k7rjf4cbjb",
     redirect_uri: "http://localhost:3000/dashboard",
     response_type: "code",
-    scope: "email openid phone",
+    scope: "email openid phone profile",
     post_logout_redirect_uri: window.location.origin + '/',
   };
 

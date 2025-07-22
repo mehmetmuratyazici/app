@@ -2,21 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes, FaEye, FaEyeSlash, FaMoon, FaSun } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
-import { useOidc, useOidcUser } from 'react-oidc-context';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from 'react-oidc-context';
 import { cognitoAuthConfig } from './config';
 import Dashboard from './Dashboard';
-
-// AWS Cognito config (replace with your actual values)
-/*
-const poolData = {
-  UserPoolId: 'YOUR_USER_POOL_ID', // e.g. 'eu-west-1_XXXXXXX'
-  ClientId: 'YOUR_CLIENT_ID', // e.g. '1h57kf5cpq17m0eml12EXAMPLE'
-};
-*/
-//const userPool = new CognitoUserPool(poolData);
+import Loading from './loading';
 
 // Login Modal Component (OIDC)
 const LoginModal = ({ isOpen, onClose }) => {
@@ -32,6 +22,7 @@ const LoginModal = ({ isOpen, onClose }) => {
   // Modal açılır açılmaz Cognito Hosted UI'ya yönlendir
   React.useEffect(() => {
     if (isOpen) {
+      console.log('geldi');
       auth.signinRedirect();
     }
   }, [isOpen]);
@@ -49,6 +40,10 @@ const Header = ({ isMenuOpen, setIsMenuOpen, darkMode, setDarkMode }) => {
   const { t, i18n } = useTranslation();
   const auth = useAuth();
   const navigate = useNavigate();
+
+  if (auth.isLoading) {
+    return <Loading/>;
+  }
 
   // Eğer user varsa dashboard'a yönlendir
   if (auth.isAuthenticated) {

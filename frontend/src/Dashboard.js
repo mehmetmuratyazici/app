@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaShoppingCart, FaUsers, FaChartLine, FaWarehouse, FaSignOutAlt, FaHome, FaBoxOpen, FaBoxes, FaSun, FaMoon } from 'react-icons/fa';
 import { isMaintenance } from './config';
 import { useTranslation } from 'react-i18next';
+import Loading from './loading';
+
 const kpiCards = [
   {
     icon: <FaShoppingCart className="text-3xl text-orange-500 mb-2" />,
@@ -39,7 +41,23 @@ const Dashboard = ({ darkMode, setDarkMode }) => {
   const auth = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const signOutRedirect = async () => {
+    await auth.removeUser();
+    const clientId = "vttgh3ahkve1e23k7rjf4cbjb";
+    const logoutUri = "http://localhost:3000/";
+    const cognitoDomain = "https://us-east-1ighamrghx.auth.us-east-1.amazoncognito.com";
+    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+  };
+
+  
+  if (auth.isLoading) {
+    return <Loading/>;
+  }
+  
+
   if (!auth.isAuthenticated) {
+    console.log("redirect ...");
     navigate('/');
     return null;
   }
@@ -92,7 +110,7 @@ const Dashboard = ({ darkMode, setDarkMode }) => {
             )}
             <button
               className="flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors"
-              onClick={() => auth.signoutRedirect()}
+              onClick={() => signOutRedirect()}
             >
               <FaSignOutAlt /> <span className="hidden sm:inline">Çıkış Yap</span>
             </button>
