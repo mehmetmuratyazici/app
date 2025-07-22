@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes, FaEye, FaEyeSlash, FaMoon, FaSun } from 'react-icons/fa';
+import { FaCheck, FaShoppingCart, FaUsers, FaChartLine, FaHeadset, FaWarehouse, FaShieldAlt, FaUser, FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaBars, FaTimes, FaEye, FaEyeSlash, FaMoon, FaSun, FaBolt, FaSearch } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from 'react-oidc-context';
@@ -511,6 +511,13 @@ const Statistics = () => {
 // Expert Component
 const Expert = () => {
   const { t } = useTranslation();
+  // Scroll to contact section
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section id="hakkimizda" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
@@ -529,7 +536,10 @@ const Expert = () => {
             <p className="text-gray-300 mb-8">
               {t('expert-desc')}
             </p>
-            <button className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">
+            <button 
+              className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+              onClick={() => scrollToSection('iletisim')}
+            >
               {t('expert-button')}
             </button>
           </div>
@@ -549,42 +559,45 @@ const Pricing = () => {
   const { t } = useTranslation();
   const packages = [
     {
-      title: t('pricing-package-1'),
-      price: 30,
+      tracking: t('pricing-tracking-10k'),
+      description: t('pricing-desc-eticaret'),
+      price: '49.90',
       features: [
-        t('pricing-feature-1'),
-        t('pricing-feature-2'),
-        t('pricing-feature-3'),
-        t('pricing-feature-4'),
-        t('pricing-feature-5'),
-        t('pricing-feature-6'),
-        t('pricing-feature-7'),
+        { icon: <FaShoppingCart />, text: t('pricing-feature-marketplaces') },
+        { icon: <FaWarehouse />, text: t('pricing-feature-warehouse') },
+        { icon: <FaSearch />, text: t('pricing-feature-productbot') },
+        { icon: <FaShoppingCart />, text: t('pricing-feature-orderbot') },
+        { icon: <FaChartLine />, text: t('pricing-feature-pricebot') },
+        { icon: <FaShieldAlt />, text: t('pricing-feature-safebot') },
+        { icon: <FaStar />, text: t('pricing-feature-updates') },
       ]
     },
     {
-      title: t('pricing-package-2'),
-      price: 50,
+      tracking: t('pricing-tracking-15k'),
+      description: t('pricing-desc-eticaret'),
+      price: '69.90',
       features: [
-        t('pricing-feature-1'),
-        t('pricing-feature-2'),
-        t('pricing-feature-3'),
-        t('pricing-feature-4'),
-        t('pricing-feature-5'),
-        t('pricing-feature-8'),
-        t('pricing-feature-7'),
+        { icon: <FaShoppingCart />, text: t('pricing-feature-marketplaces') },
+        { icon: <FaWarehouse />, text: t('pricing-feature-warehouse') },
+        { icon: <FaSearch />, text: t('pricing-feature-productbot') },
+        { icon: <FaShoppingCart />, text: t('pricing-feature-orderbot') },
+        { icon: <FaChartLine />, text: t('pricing-feature-pricebot') },
+        { icon: <FaShieldAlt />, text: t('pricing-feature-safebot') },
+        { icon: <FaStar />, text: t('pricing-feature-updates') },
       ]
     },
     {
-      title: t('pricing-package-3'),
-      price: 100,
+      tracking: t('pricing-tracking-30k'),
+      description: t('pricing-desc-eticaret'),
+      price: '99.90',
       features: [
-        t('pricing-feature-1'),
-        t('pricing-feature-2'),
-        t('pricing-feature-3'),
-        t('pricing-feature-4'),
-        t('pricing-feature-5'),
-        t('pricing-feature-8'),
-        t('pricing-feature-7'),
+        { icon: <FaShoppingCart />, text: t('pricing-feature-marketplaces') },
+        { icon: <FaWarehouse />, text: t('pricing-feature-warehouse') },
+        { icon: <FaSearch />, text: t('pricing-feature-productbot') },
+        { icon: <FaShoppingCart />, text: t('pricing-feature-orderbot') },
+        { icon: <FaChartLine />, text: t('pricing-feature-pricebot') },
+        { icon: <FaShieldAlt />, text: t('pricing-feature-safebot') },
+        { icon: <FaStar />, text: t('pricing-feature-updates') },
       ]
     }
   ];
@@ -606,17 +619,25 @@ const Pricing = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">{pkg.title}</h3>
-              <div className="text-3xl font-bold text-orange-600 mb-4">${pkg.price} <span className="text-base font-medium text-gray-600 dark:text-gray-300">/ {t('pricing-period')}</span></div>
+              <div className="flex items-center mb-4">
+                <FaBolt className="text-yellow-400 text-2xl mr-2" />
+                <h3 className="text-2xl font-extrabold uppercase text-gray-800 dark:text-white">{pkg.tracking}</h3>
+              </div>
+              <p className="text-gray-500 dark:text-gray-300 mb-4 text-sm font-medium">{pkg.description}</p>
+              <div className="flex items-end mb-4">
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">${pkg.price}</span>
+                <span className="text-lg font-medium text-gray-500 dark:text-gray-300 ml-1">/{t('pricing-period')}</span>
+              </div>
+              <hr className="my-4 border-gray-200 dark:border-gray-700" />
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start space-x-3">
-                    <FaCheck className="text-orange-600 mt-1 flex-shrink-0" />
-                    <span className="text-gray-600 dark:text-gray-300">{feature}</span>
+                  <li key={featureIndex} className="flex items-center space-x-3">
+                    <span className="text-xl text-gray-700 dark:text-gray-200">{feature.icon}</span>
+                    <span className="text-gray-700 dark:text-gray-200">{feature.text}</span>
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-gray-800 dark:bg-gray-700 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors" onClick={redirectToCognitoSignUp}>
+              <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors" onClick={redirectToCognitoSignUp}>
                 {t('pricing-select')}
               </button>
             </motion.div>

@@ -125,6 +125,21 @@ const resources = {
         "testimonials-name-3": "Buğra A.",
         "testimonials-role-3": "Yeni Başlayan",
         "testimonials-text-3": "Başlangıçta çok tedirgin oldum açıkçası. Ama MoonAmz'nin verdiği eğitim ve destek sayesinde kısa sürede başarılı olmaya başladım. Yazılım çok kullanışlı ve anlaşılır.",
+        "pricing-tracking-1": "10K ÜRÜN TAKİBİ",
+        "pricing-tracking-2": "15K ÜRÜN TAKİBİ",
+        "pricing-tracking-3": "30K ÜRÜN TAKİBİ",
+        "pricing-tracking-5k": "5K ÜRÜN TAKİBİ",
+        "pricing-tracking-10k": "10K ÜRÜN TAKİBİ",
+        "pricing-tracking-15k": "15K ÜRÜN TAKİBİ",
+        "pricing-tracking-30k": "30K ÜRÜN TAKİBİ",
+        "pricing-desc-eticaret": "Yapay zeka destekli araçlarla; tam otomatik sürdürülebilir bir e-ticaret deneyimi kazan!",
+        "pricing-feature-marketplaces": "Tüm Amazon Pazar Yerleri",
+        "pricing-feature-warehouse": "Ara Depo Entegrasyonu",
+        "pricing-feature-productbot": "ProductBOT® Ürün Arama",
+        "pricing-feature-orderbot": "OrderBOT® (Full Otomatik Sipariş)",
+        "pricing-feature-pricebot": "PriceBOT® (Otomatik Fiyat Rekabeti)",
+        "pricing-feature-safebot": "SafeBOT® (Güvenli Dropshipping)",
+        "pricing-feature-updates": "Yeni Güncellemelerden Faydalanma"
       }
     },
     EN: {
@@ -253,6 +268,21 @@ const resources = {
         "testimonials-name-3": "Bugra A.",
         "testimonials-role-3": "Beginner",
         "testimonials-text-3": "Honestly, I was very hesitant at first. But thanks to the training and support from MoonAmz, I started to succeed in a short time. The software is very useful and easy to understand.",
+        "pricing-tracking-1": "10K PRODUCT TRACKING",
+        "pricing-tracking-2": "15K PRODUCT TRACKING",
+        "pricing-tracking-3": "30K PRODUCT TRACKING",
+        "pricing-tracking-5k": "5K PRODUCT TRACKING",
+        "pricing-tracking-10k": "10K PRODUCT TRACKING",
+        "pricing-tracking-15k": "15K PRODUCT TRACKING",
+        "pricing-tracking-30k": "30K PRODUCT TRACKING",
+        "pricing-desc-eticaret": "Gain a fully automated, sustainable e-commerce experience with AI-powered tools!",
+        "pricing-feature-marketplaces": "All Amazon Marketplaces",
+        "pricing-feature-warehouse": "Warehouse Integration",
+        "pricing-feature-productbot": "ProductBOT® Product Search",
+        "pricing-feature-orderbot": "OrderBOT® (Fully Automated Order)",
+        "pricing-feature-pricebot": "PriceBOT® (Automatic Price Competition)",
+        "pricing-feature-safebot": "SafeBOT® (Secure Dropshipping)",
+        "pricing-feature-updates": "Benefit from New Updates"
       }
     }
   };
